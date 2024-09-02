@@ -1,0 +1,41 @@
+.toDoList {
+  width: 100%;
+  margin-top: 30px;
+  border-bottom: 1px solid gray;
+  font-size: 20px;
+
+  .toDoItem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid gray;
+
+    .important {
+      color: red;
+    }
+
+    .completed {
+      color: gray;
+      text-decoration: line-through;
+      opacity: 0.5;
+    }
+
+    .toDoText {
+      display: flex;
+      padding-left: 20px;
+    }
+
+    .control {
+      display: flex;
+      gap: 8px;
+      padding-right: 20px;
+
+      button {
+        width: 30px;
+        height: 30px;
+        background-color: white;
+        border: 1px solid gray;
+      }
+    }
+  }
+}

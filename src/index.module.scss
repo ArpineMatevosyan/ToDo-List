@@ -1,0 +1,29 @@
+.container {
+  margin: 0 auto;
+  width: 800px;
+  border: 1ps solid gray;
+  height: fit-content;
+
+
+  .containerTop {
+    background-color: rgba(35, 35, 112, 0.9);
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    color: white;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+
+    h1 {
+      font-size: 40px;
+    }
+
+    .itemCount {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 14px;
+      gap: 5px;
+    }
+  }
+}

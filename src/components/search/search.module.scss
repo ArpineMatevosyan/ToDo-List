@@ -1,0 +1,32 @@
+.searchContainer {
+  width: 100%;
+  height: 40px;
+  margin: 20px auto;
+  justify-content: center;
+  display: flex;
+
+  .searchControl {
+    width: 35%;
+
+    button {
+      color: white;
+      padding: 0 25px;
+    }
+
+    display: flex;
+
+    .all {
+      background-color: rgba(35, 35, 112, 0.9);
+    }
+
+    .done {
+      background-color: rgba(35, 108, 35, 0.9);
+    }
+
+    .important {
+      background-color: rgba(142, 21, 21, 0.9);
+      border-top-right-radius: 8px;
+      border-bottom-right-radius: 8px;
+    }
+  }
+}

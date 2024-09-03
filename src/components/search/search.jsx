@@ -1,21 +1,20 @@
 import { useEffect } from "react";
-import Input from "../input/Input";
 import { useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
 import {
   isShowDone,
   isShowImportant,
   isShowAll,
   isSearch,
 } from "../../store/todo/slice";
-import styles from "./search.module.scss";
-import clsx from "clsx";
+import Input from "../input/input";
 import Button from "../button/button";
-import { useSelector, useDispatch } from "react-redux";
+
+import styles from "./search.module.scss";
 
 const Search = () => {
-  const { toDoList, important } = useSelector((state) => state.todo);
   const dispatch = useDispatch();
-  const { control, handleSubmit, reset, watch } = useForm({
+  const { control, watch } = useForm({
     defaultValues: {
       search: "",
     },

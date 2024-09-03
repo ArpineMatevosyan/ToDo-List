@@ -1,19 +1,18 @@
 .searchContainer {
+  display: flex;
+  justify-content: center;
   width: 100%;
   height: 40px;
-  margin: 20px auto;
-  justify-content: center;
-  display: flex;
+  margin: 20px 10px;
 
   .searchControl {
+    display: flex;
     width: 35%;
 
     button {
       color: white;
       padding: 0 25px;
     }
-
-    display: flex;
 
     .all {
       background-color: rgba(35, 35, 112, 0.9);

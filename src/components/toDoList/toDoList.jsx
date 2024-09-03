@@ -6,23 +6,25 @@ import {
   isDelItem,
   isToDoList,
   isImportant,
+  isEditingId,
   isAddedItemDone,
 } from "../../store/todo/slice";
-import Button from "../button/button";
 import { FaEdit } from "react-icons/fa";
 import { MdDone } from "react-icons/md";
 import { MdDelete } from "react-icons/md";
 import { FaInfo } from "react-icons/fa6";
+import Button from "../button/button";
+import EditToDo from "./component/editToDo/editToDo";
 
-import styles from "./listLine.module.scss";
+import styles from "./toDoList.module.scss";
 
-const ListLine = ({ className }) => {
+const ToDoList = ({ className }) => {
   const {
     toDoList,
     important,
-    toggleShowToDoList,
     showToDoList,
     searchToDoList,
+    toggleShowToDoList,
   } = useSelector((state) => state.todo);
   const dispatch = useDispatch();
 
@@ -59,6 +61,9 @@ const ListLine = ({ className }) => {
   const toggleImportant = (id) => {
     dispatch(isImportant(id));
   };
+  const editToDo = (id) => {
+    dispatch(isEditingId(id));
+  };
   useEffect(() => {
     fetch("https://jsonplaceholder.typicode.com/todos?_limit=5")
       .then((response) => response.json())
@@ -80,7 +85,10 @@ const ListLine = ({ className }) => {
               <p className={clsx(className)}>{todo?.title}</p>
             </div>
             <div className={styles.control}>
-              <Button children={<FaEdit />} />
+              <Button
+                children={<FaEdit />}
+                onClick={() => editToDo(todo?.id)}
+              />
               <Button
                 children={<MdDone />}
                 onClick={() => toggleComplete(todo?.id)}
@@ -97,10 +105,11 @@ const ListLine = ({ className }) => {
           </div>
         ))
       ) : (
-        <div>No toDo yet</div>
+        <div className={styles.noTodo}>No ToDo yet</div>
       )}
+      <EditToDo />
     </div>
   );
 };
 
-export default ListLine;
+export default ToDoList;

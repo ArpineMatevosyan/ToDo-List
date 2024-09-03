@@ -1,4 +1,5 @@
 import clsx from "clsx";
+
 import styles from "./button.module.scss";
 
 const Button = ({ children, onClick, className }) => {

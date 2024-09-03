@@ -1,16 +1,18 @@
 import AddToDo from "./components/addToDo/addToDo";
-import ListLine from "./components/listLine/listLine";
+import ToDoList from "./components/toDoList/toDoList";
 import Search from "./components/search/search";
 import styles from "./index.module.scss";
 import { useSelector } from "react-redux";
 
 export const App = () => {
-  const { toDoList, important } = useSelector((state) => state.todo);
+  const { toDoList, important, editingId } = useSelector((state) => state.todo);
 
   const done = toDoList.filter((todo) => todo.completed).length;
 
   return (
-    <div className={styles.container}>
+    <div
+      className={`${styles.container} ${editingId ? styles.hideContainer : ""}`}
+    >
       <div className={styles.containerTop}>
         <h1>MY TODO LIST</h1>
         <div className={styles.itemCount}>
@@ -19,7 +21,7 @@ export const App = () => {
         </div>
       </div>
       <Search />
-      <ListLine />
+      <ToDoList />
       <AddToDo />
     </div>
   );

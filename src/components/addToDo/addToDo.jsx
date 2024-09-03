@@ -1,14 +1,12 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
 import { isAdd } from "../../store/todo/slice";
 import Input from "../../components/input/Input";
-
-import styles from "./addToDo.module.scss";
 import Button from "../button/button";
 
-const AddToDo = () => {
-  const { toDoList } = useSelector((state) => state.todo);
+import styles from "./addToDo.module.scss";
 
+const AddToDo = () => {
   const dispatch = useDispatch();
   const { control, handleSubmit, reset } = useForm({
     defaultValues: {

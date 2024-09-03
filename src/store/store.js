@@ -6,4 +6,3 @@ export const store = configureStore({
     todo: ToDo.reducer,
   },
 });
-

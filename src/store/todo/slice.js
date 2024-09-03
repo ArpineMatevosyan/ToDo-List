@@ -5,6 +5,7 @@ const ToDo = createSlice({
   initialState: {
     toDoList: [],
     important: [],
+    editingId: "",
     showToDoList: [],
     searchToDoList: [],
     toggleShowToDoList: false,
@@ -75,6 +76,15 @@ const ToDo = createSlice({
         state.searchToDoList = [];
       }
     },
+    isEditingId: (state, action) => {
+      state.editingId = action.payload;
+    },
+    isEditDone: (state, action) => {
+      state.toDoList = state.toDoList.map((todo) =>
+        todo.id === state.editingId ? { ...todo, title: action.payload } : todo
+      );
+      state.editingId = "";
+    },
   },
 });
 
@@ -82,11 +92,13 @@ export const {
   isAdd,
   isDone,
   isSearch,
-  isDelItem,
   isShowAll,
+  isDelItem,
   isToDoList,
+  isEditDone,
   isShowDone,
   isImportant,
+  isEditingId,
   isAddedItemDone,
   isShowImportant,
 } = ToDo.actions;
